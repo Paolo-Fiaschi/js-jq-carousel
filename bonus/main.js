@@ -1,5 +1,6 @@
 $($(document).ready(function() {
 
+
   // collego il click delle frecce all'img e pallino corrispondente
 
   // evento al click prev
@@ -13,17 +14,17 @@ $($(document).ready(function() {
   );
 
 
+  // centralizzo la funzione del prev carousel
+  function prevImg(){
+    prevImg
+  };
+
   // collegare il click del pallino al pallino e img corrispondente
 
   // evento click pallino
   $('.nav i').click(
       ballClick
   );
-  
-  // centralizzo la funzione del prev carousel
-  function prevImg(){
-    prevImg
-  };
 
   // centralizzo la funzione per il click sul pallino
   function ballClick(){
@@ -33,6 +34,10 @@ $($(document).ready(function() {
 
     // salvare il riferimento dell'img attiva al click del pallino
     var imgList = $('.images img');
+
+    // var imgActivePrev = $('.images img.activePrev');
+    // imgActivePrev.removeClass('activePrev');
+
 
     var indiceImmagineDaMostrare = ballActiveClick.index(this);
 
@@ -56,19 +61,26 @@ $($(document).ready(function() {
     // salvare il riferimento del pallino attivo al click
     var ballActive = $('.nav i.active');
 
-    // togliere la classe active all'img
+    var imgActivePrev = $('.images img.activePrev');
+    console.log(imgActivePrev);
+    imgActivePrev.removeClass('activePrev');
+
+
+
+
+    // // togliere la classe active all'img
     imgActive.removeClass('active');
     // togliere la classe active al pallino
     ballActive.removeClass('active');
 
     // se è l'ultimo aggiungi la classe active al first
-    if ((imgActive.hasClass('first')) && (ballActive.hasClass('first'))) {
-      $(".images img.last").addClass('active');
+    if ((imgActivePrev.hasClass('first')) && (ballActive.hasClass('first'))) {
+      $(".images img.last").addClass('activePrev');
       $(".nav i.last").addClass('active');
 
     //altrimenti aggiungere la classe active al next
     }else {
-      imgActive.prev().addClass('active');
+      imgActivePrev.prev().addClass('activePrev');
       ballActive.prev().addClass('active');
     }
 
@@ -82,20 +94,35 @@ $($(document).ready(function() {
     // salvare il riferimento del pallino attivo al click
     var ballActive = $('.nav i.active');
 
-    // togliere la classe active all'img
+    var imgActivePrev = $('.images img.activePrev');
+
+    imgActive.addClass('active');
     imgActive.removeClass('active');
-    // togliere la classe active al pallino
+    imgActivePrev.removeClass('activePrev');
     ballActive.removeClass('active');
 
-    // se è l'ultimo aggiungi la classe active al first
+
+
+    // if (imgActivePrev.hasClass('imgActivePrev')) {
+    //   imgActivePrev.addClass('active');
+    //   imgActivePrev.removeClass('activePrev');
+    // }else {
+    //
+    // }
     if ((imgActive.hasClass('last')) && (ballActive.hasClass('last'))) {
       $(".images img.first").addClass('active');
       $(".nav i.first").addClass('active');
+
     //altrimenti aggiungere la classe active al next
     }else {
       imgActive.next().addClass('active');
       ballActive.next().addClass('active');
-    }
+
+      }
+
+
+
+
 
   };
 
