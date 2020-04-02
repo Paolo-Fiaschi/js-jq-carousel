@@ -35,8 +35,8 @@ $($(document).ready(function() {
     // salvare il riferimento dell'img attiva al click del pallino
     var imgList = $('.images img');
 
-    // var imgActivePrev = $('.images img.activePrev');
-    // imgActivePrev.removeClass('activePrev');
+    var imgActivePrev = $('.images img.activePrev');
+    imgActivePrev.removeClass('activePrev');
 
 
     var indiceImmagineDaMostrare = ballActiveClick.index(this);
