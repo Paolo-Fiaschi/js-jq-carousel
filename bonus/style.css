@@ -43,15 +43,20 @@ i{
 
 .images img.active {
  display: inline-block;
- animation: active 4s;
+}
+.animationNext{
+  animation: active 4s;
 }
 @keyframes active {
   from {transform: translateX(-100%);}
   to {transform: translateX(0%);}
 }
+
 .images img.activePrev {
  display: inline-block;
- animation: activePrev 4s;
+}
+.animationPrev{
+  animation: activePrev 4s;
 }
 @keyframes activePrev {
   from {transform: translateX(100%);}

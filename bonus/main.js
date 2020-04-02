@@ -34,6 +34,10 @@ $($(document).ready(function() {
 
     // salvare il riferimento dell'img attiva al click del pallino
     var imgList = $('.images img');
+    // salvo le animations
+    var animationNext = $('.images img.animationNext');
+    var animationPrev = $('.images img.animationPrev');
+
 
     var imgActivePrev = $('.images img.activePrev');
     imgActivePrev.removeClass('activePrev');
@@ -44,13 +48,17 @@ $($(document).ready(function() {
     // togli la classe active a tutti i pallini
     ballActiveClick.removeClass('active');
     imgList.removeClass('active');
+    // tolgo l'animations
+    animationNext.removeClass('animationNext');
+    animationPrev.removeClass('animationPrev');
+
 
     //aggiungo la classe active al pallino cliccato
     $(this).addClass('active').index(this);
     console.log(ballActiveClick.index(this));
 
     // aggiungo la classe active all'img con index = al pallino cliccato
-    $('.images img').eq(indiceImmagineDaMostrare).addClass('active');
+    $('.images img').eq(indiceImmagineDaMostrare).addClass('active animationNext');
     console.log($('.images img').eq(indiceImmagineDaMostrare).addClass('active'));
   };
   // centralizzo la funzione del prev carousel
@@ -60,27 +68,26 @@ $($(document).ready(function() {
     var imgActive = $('.images img.active');
     // salvare il riferimento del pallino attivo al click
     var ballActive = $('.nav i.active');
+    // salvo le animations
+    var animationNext = $('.images img.animationNext');
+    var animationPrev = $('.images img.animationPrev');
 
-    var imgActivePrev = $('.images img.activePrev');
-    console.log(imgActivePrev);
-    imgActivePrev.removeClass('activePrev');
-
-
-
-
-    // // togliere la classe active all'img
+    // togliere la classe active all'img
     imgActive.removeClass('active');
     // togliere la classe active al pallino
     ballActive.removeClass('active');
+    // tolgo l'animations
+    animationNext.removeClass('animationNext');
+    animationPrev.removeClass('animationPrev');
 
     // se è l'ultimo aggiungi la classe active al first
-    if ((imgActivePrev.hasClass('first')) && (ballActive.hasClass('first'))) {
-      $(".images img.last").addClass('activePrev');
+    if ((imgActive.hasClass('first')) && (ballActive.hasClass('first'))) {
+      $(".images img.last").addClass('active animationPrev');
       $(".nav i.last").addClass('active');
 
     //altrimenti aggiungere la classe active al next
     }else {
-      imgActivePrev.prev().addClass('activePrev');
+      imgActive.prev().addClass('active animationPrev');
       ballActive.prev().addClass('active');
     }
 
@@ -93,32 +100,27 @@ $($(document).ready(function() {
     var imgActive = $('.images img.active');
     // salvare il riferimento del pallino attivo al click
     var ballActive = $('.nav i.active');
+    // salvo le animations
+    var animationNext = $('.images img.animationNext');
+    var animationPrev = $('.images img.animationPrev');
 
-    var imgActivePrev = $('.images img.activePrev');
-
-    imgActive.addClass('active');
+    // togliere la classe active all'img
     imgActive.removeClass('active');
-    imgActivePrev.removeClass('activePrev');
+    // togliere la classe active al pallino
     ballActive.removeClass('active');
+    // tolgo l'animations
+    animationNext.removeClass('animationNext');
+    animationPrev.removeClass('animationPrev');
 
-
-
-    // if (imgActivePrev.hasClass('imgActivePrev')) {
-    //   imgActivePrev.addClass('active');
-    //   imgActivePrev.removeClass('activePrev');
-    // }else {
-    //
-    // }
+    // se è l'ultimo aggiungi la classe active al first
     if ((imgActive.hasClass('last')) && (ballActive.hasClass('last'))) {
-      $(".images img.first").addClass('active');
+      $(".images img.first").addClass('active animationNext');
       $(".nav i.first").addClass('active');
-
     //altrimenti aggiungere la classe active al next
     }else {
-      imgActive.next().addClass('active');
+      imgActive.next().addClass('active animationNext');
       ballActive.next().addClass('active');
-
-      }
+    }
 
 
 
